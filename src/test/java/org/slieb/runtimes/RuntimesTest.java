@@ -14,11 +14,9 @@ import java.io.StringReader;
 import static org.junit.Assert.*;
 import static org.slieb.runtimes.Runtimes.*;
 
-
 public class RuntimesTest {
 
     RhinoRuntime runtime;
-
 
     @Before
     public void setUp() throws Exception {
