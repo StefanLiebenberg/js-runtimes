@@ -34,9 +34,9 @@ public class Runtimes {
      * String value = Runtimes.getString(runtime, "x"); // will return 'value';
      * }
      *
-     * @param runtime
-     * @param command
-     * @return
+     * @param runtime The javascript runtime.
+     * @param command An executable javascript command
+     * @return The string result of executing the command on the runtime.
      */
     public static String getString(JavascriptRuntime runtime, String command) {
         return (String) runtime.execute(command);
@@ -100,10 +100,10 @@ public class Runtimes {
     }
 
     /**
-     * @param runtime
-     * @param url
-     * @return
-     * @throws IOException
+     * @param runtime A Javascript Runtime.
+     * @param url     The url where javascript executable code is located.
+     * @return An object.
+     * @throws IOException when there isd an error reading from the url.
      */
     public static Object evaluateURL(JavascriptRuntime runtime, URL url) throws IOException {
         try (InputStream inputStream = url.openStream()) {
@@ -112,21 +112,21 @@ public class Runtimes {
     }
 
     /**
-     * @param runtime
-     * @param uri
-     * @param path
-     * @return
-     * @throws IOException
+     * @param runtime A javascript runtime.
+     * @param uri     The uri where javascript content could be run from.
+     * @param path    The path we intend to open this uri as.
+     * @return an Object.
+     * @throws IOException when there is an error reading from the uri.
      */
     public static Object evaluateURI(JavascriptRuntime runtime, URI uri, String path) throws IOException {
         return evaluateURL(runtime, uri.toURL());
     }
 
     /**
-     * @param runtime
-     * @param file
-     * @return
-     * @throws IOException
+     * @param runtime The javascript runtime.
+     * @param file    The file that contains executable javascript code.
+     * @return An object.
+     * @throws IOException when there is an error reading the contents of file.
      */
     public static Object evaluateFile(JavascriptRuntime runtime, File file) throws IOException {
         try (Reader reader = new FileReader(file)) {

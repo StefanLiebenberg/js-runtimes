@@ -34,3 +34,6 @@ This runtime extends the rhino runtime and adds envjs support for the DOM.
   runtime.close();
 ```
 
+## Misc
+
+**Note:** This repo contains a monkey patched version of rhino's BaseFunction class to lend support to Function.caller from inside some functions.  

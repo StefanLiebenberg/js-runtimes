@@ -179,6 +179,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <excludePackageNames>org.mozilla.javascript</excludePackageNames>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
