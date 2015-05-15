@@ -27,13 +27,21 @@
         <plugin.maven-deploy-plugin>2.8.2</plugin.maven-deploy-plugin>
         <plugin.maven-install-plugin>2.5.2</plugin.maven-install-plugin>
         <plugin.maven-jar-plugin>2.6</plugin.maven-jar-plugin>
+        <plugin.maven-surefire-plugin>2.18.1</plugin.maven-surefire-plugin>
+        <plugin.maven-clean-plugin>0</plugin.maven-clean-plugin>
+        <plugin.maven-source-plugin>2.4</plugin.maven-source-plugin>
+        <plugin.site-maven-plugin>0.11</plugin.site-maven-plugin>
+        <plugin.maven-resources-plugin>2.7</plugin.maven-resources-plugin>
+
 
         <dep.maven>3.3.1</dep.maven>
         <dep.rhino>1.7.6</dep.rhino>
         <dep.commons-io>2.4</dep.commons-io>
         <dep.guava>18.0</dep.guava>
+        <dep.junit>4.12</dep.junit>
         <dep.selenium>2.45.0</dep.selenium>
         <dep.mockito>2.0.2-beta</dep.mockito>
+
     </properties>
 
     <prerequisites>
@@ -96,11 +104,10 @@
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${dep.junit}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -131,11 +138,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
+                <version>${dep.maven-resources-plugin}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
+                <version>${plugin.maven-site-plugin}</version>
                 <configuration>
                     <skipDeploy>true</skipDeploy>
                 </configuration>
@@ -148,12 +156,11 @@
                         <phase>site</phase>
                     </execution>
                 </executions>
-                <version>${plugin.maven-site-plugin}</version>
             </plugin>
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
-                <version>0.11</version>
+                <version>${dep.site-maven-plugin}</version>
                 <configuration>
                     <message>Creating site for ${project.version}</message>
                     <noJekyll>true</noJekyll>
@@ -184,7 +191,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
+                <version>${plugin.maven-source-plugin}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -213,12 +220,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>2.6.1</version>
+                <version>${plugin.maven-clean-plugin}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
+                <version>${plugin.maven-surefire-plugin}</version>
                 <configuration>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <useManifestOnlyJar>true</useManifestOnlyJar>
@@ -232,7 +239,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.2</version>
+                <version>${plugin.maven-javadoc-plugin}</version>
                 <configuration>
                     <excludePackageNames>org.mozilla.javascript</excludePackageNames>
                 </configuration>
