@@ -7,6 +7,9 @@
     <groupId>org.slieb</groupId>
     <artifactId>js-runtimes</artifactId>
     <version>1.1-SNAPSHOT</version>
+    <name>JavaScript Runtimes</name>
+    <description>A set of utility classes to execute code on a few JavaScript runtimes.</description>d
+    <url>http://stefanliebenberg.github.io/js-runtimes/</url>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -14,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <plugin.maven-compiler-plugin>3.3</plugin.maven-compiler-plugin>
-
+        <github.global.server>github</github.global.server>
         <dep.maven>3.3.1</dep.maven>
         <dep.rhino>1.7R4</dep.rhino>
         <dep.commons-io>2.4</dep.commons-io>
@@ -125,14 +128,14 @@
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
-                <version>0.10</version>
+                <version>0.11</version>
                 <configuration>
                     <message>Creating site for ${project.version}</message>
                     <noJekyll>true</noJekyll>
                     <merge>false</merge>
                     <repositoryOwner>StefanLiebenberg</repositoryOwner>
-                    <repositoryName>kute</repositoryName>
-                    <oauth2Token>${env.TOKEN}</oauth2Token>
+                    <repositoryName>js-runtimes</repositoryName>
+                    <!--<oauth2Token>${env.TOKEN}</oauth2Token>-->
                 </configuration>
                 <executions>
                     <execution>
