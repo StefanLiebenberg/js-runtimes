@@ -18,8 +18,18 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <plugin.maven-compiler-plugin>3.3</plugin.maven-compiler-plugin>
         <github.global.server>github</github.global.server>
+
+        <plugin.maven-javadoc-plugin>2.10.3</plugin.maven-javadoc-plugin>
+        <plugin.maven-site-plugin>3.4</plugin.maven-site-plugin>
+        <plugin.maven-release-plugin>2.5.2</plugin.maven-release-plugin>
+        <plugin.nexus-staging-maven-plugin>1.6.5</plugin.nexus-staging-maven-plugin>
+        <plugin.maven-gpg-plugin>1.6</plugin.maven-gpg-plugin>
+        <plugin.maven-deploy-plugin>2.8.2</plugin.maven-deploy-plugin>
+        <plugin.maven-install-plugin>2.5.2</plugin.maven-install-plugin>
+        <plugin.maven-jar-plugin>2.6</plugin.maven-jar-plugin>
+
         <dep.maven>3.3.1</dep.maven>
-        <dep.rhino>1.7R4</dep.rhino>
+        <dep.rhino>1.7.6</dep.rhino>
         <dep.commons-io>2.4</dep.commons-io>
         <dep.guava>18.0</dep.guava>
         <dep.selenium>2.45.0</dep.selenium>
@@ -105,6 +115,21 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${plugin.maven-deploy-plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>${plugin.maven-install-plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${plugin.maven-jar-plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.7</version>
             </plugin>
@@ -123,7 +148,7 @@
                         <phase>site</phase>
                     </execution>
                 </executions>
-                <version>3.4</version>
+                <version>${plugin.maven-site-plugin}</version>
             </plugin>
             <plugin>
                 <groupId>com.github.github</groupId>
@@ -172,7 +197,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.2</version>
+                <version>${plugin.maven-javadoc-plugin}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -223,7 +248,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-release-plugin</artifactId>
-                        <version>2.5</version>
+                        <version>${plugin.maven-release-plugin}</version>
                         <configuration>
                             <arguments>-Dgpg.passphrase="${gpg.passphrase}"</arguments>
                         </configuration>
@@ -231,7 +256,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.3</version>
+                        <version>${plugin.nexus-staging-maven-plugin}</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
@@ -242,7 +267,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>${plugin.maven-gpg-plugin}</version>
                         <configuration>
                             <gpgArguments>
                                 <arg>--pinentry-mode</arg>
