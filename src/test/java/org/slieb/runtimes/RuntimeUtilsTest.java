@@ -34,37 +34,37 @@ public class RuntimeUtilsTest {
 
     @Test
     public void testGetTrueBooleanFromJsRuntime() throws Exception {
-        assertTrue(getBooleanFromJsRuntime(mockRuntime, "TRUE"));
+        assertTrue(getBoolean(mockRuntime, "TRUE"));
     }
 
     @Test
     public void testGetFalseBooleanFromJsRuntime() throws Exception {
-        assertFalse(getBooleanFromJsRuntime(mockRuntime, "FALSE"));
+        assertFalse(getBoolean(mockRuntime, "FALSE"));
     }
 
     @Test
     public void testGetNullBooleanFromJsRuntime() throws Exception {
-        assertNull(getBooleanFromJsRuntime(mockRuntime, "NULL"));
+        assertNull(getBoolean(mockRuntime, "NULL"));
     }
 
     @Test(expected = ClassCastException.class)
     public void testGetObjectBooleanFromJsRuntime() throws Exception {
-        getBooleanFromJsRuntime(mockRuntime, "OBJECT");
+        getBoolean(mockRuntime, "OBJECT");
     }
 
     @Test(expected = ClassCastException.class)
     public void testGetStrictBooleanFromJsRuntime() throws Exception {
-        getBooleanFromJsRuntime(mockRuntime, "STRING");
+        getBoolean(mockRuntime, "STRING");
     }
 
     @Test
     public void testGetStringFromJsRuntime() throws Exception {
-        assertEquals("some string", getStringFromJsRuntime(mockRuntime, "STRING"));
+        assertEquals("some string", getString(mockRuntime, "STRING"));
     }
 
     @Test
     public void testGetIntegerFromJsRuntime() throws Exception {
-        assertEquals(Integer.valueOf(1024), getIntegerFromJsRuntime(mockRuntime, "INTEGER"));
+        assertEquals(Integer.valueOf(1024), getInteger(mockRuntime, "INTEGER"));
     }
 
     @Test

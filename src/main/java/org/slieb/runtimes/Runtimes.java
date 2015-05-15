@@ -11,31 +11,48 @@ import java.net.URL;
 public class Runtimes {
 
     /**
-     * Type Cast Object to Boolean.
+     * This fetches object as a boolean from runtime.
+     *
+     * {@code
+     * runtime.execute("x = true"); // do some javascript stuff
+     * Boolean value = Runtimes.getBoolean(runtime, "x"); // will return true.
+     * }
+     *
+     * @param runtime The javascript runtime.
+     * @param command Command that should return the expected value.
+     * @return Returns a boolean result gained from executing the command.
+     */
+    public static Boolean getBoolean(JavascriptRuntime runtime, String command) {
+        return (Boolean) runtime.execute(command);
+    }
+
+    /**
+     * This fetches object a string from runtime.
+     *
+     * {@code
+     * runtime.execute("var x = 'value';"); // do sometime javascript stuff.
+     * String value = Runtimes.getString(runtime, "x"); // will return 'value';
+     * }
      *
      * @param runtime
      * @param command
      * @return
      */
-    public static Boolean getBooleanFromJsRuntime(JavascriptRuntime runtime, String command) {
-        return (Boolean) runtime.execute(command);
-    }
-
-    /**
-     * @param runtime
-     * @param command
-     * @return
-     */
-    public static String getStringFromJsRuntime(JavascriptRuntime runtime, String command) {
+    public static String getString(JavascriptRuntime runtime, String command) {
         return (String) runtime.execute(command);
     }
 
     /**
-     * @param runtime
-     * @param command
-     * @return
+     * {@code
+     * runtime.execute("var x = 1;");
+     * Integer intValue = Runtimes.getInteger("x");
+     * }
+     *
+     * @param runtime The javascript runtime.
+     * @param command The javascript command to execute to get a integer result.
+     * @return the result gained from executing the javascript command.
      */
-    public static Integer getIntegerFromJsRuntime(JavascriptRuntime runtime, String command) {
+    public static Integer getInteger(JavascriptRuntime runtime, String command) {
         Number number = (Number) runtime.execute(command);
         if (number != null) {
             return number.intValue();
@@ -45,22 +62,22 @@ public class Runtimes {
     }
 
     /**
-     * @param runtime
-     * @param reader
-     * @param path
-     * @return
-     * @throws IOException
+     * @param runtime The javascript runtime.
+     * @param reader  A Reader that will supply javascript executable code.
+     * @param path    The filename that this reader will be read as.
+     * @return Any object that the javascript executable code returns.
+     * @throws IOException throws an ioException if there is trouble reading the reader.
      */
     public static Object evaluateReader(JavascriptRuntime runtime, Reader reader, String path) throws IOException {
         return runtime.execute(IOUtils.toString(reader), path);
     }
 
     /**
-     * @param runtime
-     * @param stream
-     * @param path
-     * @return
-     * @throws IOException
+     * @param runtime The javascript runtime.
+     * @param stream  An InputStream that will supply the javascript executable code.
+     * @param path    The filename path executable code will be run as.
+     * @return Any object the executable code returns.
+     * @throws IOException Throws an ioException of there is trouble reading the inputStream.
      */
     public static Object evaluateInputStream(JavascriptRuntime runtime, InputStream stream, String path) throws IOException {
         try (Reader reader = new InputStreamReader(stream)) {
@@ -68,7 +85,14 @@ public class Runtimes {
         }
     }
 
-    public static Object evaluateResource(JavascriptRuntime runtime, ClassLoader classLoader, String resource) throws IOException {
+    /**
+     * @param runtime     The javascript runtime.
+     * @param classLoader The classloader to use.
+     * @param resource    The resource path to extract from the classResource.
+     * @return Any object the executable code runs.
+     * @throws IOException throws an ioException if there is any trouble reading the resource from the class loader.
+     */
+    public static Object evaluateClassResource(JavascriptRuntime runtime, ClassLoader classLoader, String resource) throws IOException {
         try (InputStream inputStream = classLoader.getResourceAsStream(resource)) {
             Preconditions.checkNotNull(inputStream, "%s is not found.", resource);
             return evaluateInputStream(runtime, inputStream, resource);

@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static org.slieb.runtimes.Runtimes.getIntegerFromJsRuntime;
-import static org.slieb.runtimes.Runtimes.getStringFromJsRuntime;
+import static org.slieb.runtimes.Runtimes.getInteger;
+import static org.slieb.runtimes.Runtimes.getString;
 
 
 public class EnvJSRuntimeTest {
@@ -42,7 +42,7 @@ public class EnvJSRuntimeTest {
         runtime.execute("window.setTimeout(function(){value=\"B\";}, 100);");
         runtime.doWait();
 
-        assertEquals("B", getStringFromJsRuntime(runtime, "value"));
+        assertEquals("B", getString(runtime, "value"));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class EnvJSRuntimeTest {
         runtime.execute("window.clearTimeout(x);");
         runtime.doWait();
 
-        assertEquals("A", getStringFromJsRuntime(runtime, "value"));
+        assertEquals("A", getString(runtime, "value"));
     }
 
     @Test
@@ -65,10 +65,10 @@ public class EnvJSRuntimeTest {
         runtime.execute("window.setInterval(function(){ value++; }, 1000);");
 
         runtime.doWait(1000);
-        assertEquals((Integer) 1, getIntegerFromJsRuntime(runtime, "value"));
+        assertEquals((Integer) 1, getInteger(runtime, "value"));
 
         runtime.doWait(1000);
-        assertEquals((Integer) 2, getIntegerFromJsRuntime(runtime, "value"));
+        assertEquals((Integer) 2, getInteger(runtime, "value"));
     }
 
 }

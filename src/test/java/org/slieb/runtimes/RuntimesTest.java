@@ -32,20 +32,20 @@ public class RuntimesTest {
     @Test
     public void testGetBooleanFromJsRuntime() throws Exception {
         runtime.execute("var x = true; var y = false;");
-        assertTrue(getBooleanFromJsRuntime(runtime, "x"));
-        assertFalse(getBooleanFromJsRuntime(runtime, "y"));
+        assertTrue(getBoolean(runtime, "x"));
+        assertFalse(getBoolean(runtime, "y"));
     }
 
     @Test
     public void testGetStringFromJsRuntime() throws Exception {
         runtime.execute("var x = 'content';");
-        assertEquals("content", Runtimes.getStringFromJsRuntime(runtime, "x"));
+        assertEquals("content", Runtimes.getString(runtime, "x"));
     }
 
     @Test
     public void testGetIntegerFromJsRuntime() throws Exception {
         runtime.execute("var x = 1.0;");
-        assertEquals(Integer.valueOf(1), getIntegerFromJsRuntime(runtime, "x"));
+        assertEquals(Integer.valueOf(1), getInteger(runtime, "x"));
     }
 
     @Test
@@ -54,7 +54,7 @@ public class RuntimesTest {
         try (Reader reader = new StringReader("x = 2;")) {
             evaluateReader(runtime, reader, "/some/path.js");
         }
-        assertEquals(Integer.valueOf(2), getIntegerFromJsRuntime(runtime, "x"));
+        assertEquals(Integer.valueOf(2), getInteger(runtime, "x"));
     }
 
     @Test
@@ -63,7 +63,7 @@ public class RuntimesTest {
         try (InputStream inputStream = IOUtils.toInputStream("x = 2;")) {
             evaluateInputStream(runtime, inputStream, "/some/path.js");
         }
-        assertEquals(Integer.valueOf(2), getIntegerFromJsRuntime(runtime, "x"));
+        assertEquals(Integer.valueOf(2), getInteger(runtime, "x"));
     }
 
     @Test
