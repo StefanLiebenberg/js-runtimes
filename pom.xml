@@ -8,7 +8,7 @@
     <artifactId>js-runtimes</artifactId>
     <version>1.1-SNAPSHOT</version>
     <name>JavaScript Runtimes</name>
-    <description>A set of utility classes to execute code on a few JavaScript runtimes.</description>d
+    <description>A set of utility classes to execute code on a few JavaScript runtimes.</description>
     <url>http://stefanliebenberg.github.io/js-runtimes/</url>
 
     <properties>
@@ -201,6 +201,19 @@
             </plugin>
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.2</version>
+                <configuration>
+                    <excludePackageNames>org.mozilla.javascript</excludePackageNames>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
     <profiles>
         <profile>
