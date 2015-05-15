@@ -28,7 +28,7 @@
         <plugin.maven-install-plugin>2.5.2</plugin.maven-install-plugin>
         <plugin.maven-jar-plugin>2.6</plugin.maven-jar-plugin>
         <plugin.maven-surefire-plugin>2.18.1</plugin.maven-surefire-plugin>
-        <plugin.maven-clean-plugin>0</plugin.maven-clean-plugin>
+        <plugin.maven-clean-plugin>2.6.1</plugin.maven-clean-plugin>
         <plugin.maven-source-plugin>2.4</plugin.maven-source-plugin>
         <plugin.site-maven-plugin>0.11</plugin.site-maven-plugin>
         <plugin.maven-resources-plugin>2.7</plugin.maven-resources-plugin>
@@ -138,7 +138,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>${dep.maven-resources-plugin}</version>
+                <version>${plugin.maven-resources-plugin}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -160,7 +160,7 @@
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
-                <version>${dep.site-maven-plugin}</version>
+                <version>${plugin.site-maven-plugin}</version>
                 <configuration>
                     <message>Creating site for ${project.version}</message>
                     <noJekyll>true</noJekyll>
