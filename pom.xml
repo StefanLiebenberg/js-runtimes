@@ -135,7 +135,6 @@
                     <merge>false</merge>
                     <repositoryOwner>StefanLiebenberg</repositoryOwner>
                     <repositoryName>js-runtimes</repositoryName>
-                    <!--<oauth2Token>${env.TOKEN}</oauth2Token>-->
                 </configuration>
                 <executions>
                     <execution>
