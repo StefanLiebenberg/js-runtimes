@@ -6,7 +6,7 @@
 
     <groupId>org.slieb</groupId>
     <artifactId>js-runtimes</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
     <name>JavaScript Runtimes</name>
     <description>A set of utility classes to execute code on a few JavaScript runtimes.</description>
     <url>http://stefanliebenberg.github.io/js-runtimes/</url>
@@ -31,7 +31,7 @@
         <plugin.maven-javadoc-plugin>2.10.3</plugin.maven-javadoc-plugin>
         <plugin.maven-site-plugin>3.4</plugin.maven-site-plugin>
         <plugin.maven-release-plugin>2.5.2</plugin.maven-release-plugin>
-        <plugin.nexus-staging-maven-plugin>1.6.5</plugin.nexus-staging-maven-plugin>
+        <plugin.nexuks-staging-maven-plugin>1.6.5</plugin.nexuks-staging-maven-plugin>
         <plugin.maven-gpg-plugin>1.6</plugin.maven-gpg-plugin>
         <plugin.maven-deploy-plugin>2.8.2</plugin.maven-deploy-plugin>
         <plugin.maven-install-plugin>2.5.2</plugin.maven-install-plugin>
@@ -39,7 +39,7 @@
         <plugin.maven-surefire-plugin>2.18.1</plugin.maven-surefire-plugin>
         <plugin.maven-clean-plugin>2.6.1</plugin.maven-clean-plugin>
         <plugin.maven-source-plugin>2.4</plugin.maven-source-plugin>
-        <plugin.site-maven-plugin>0.11</plugin.site-maven-plugin>
+        <plugin.site-maven-plugin>0.12</plugin.site-maven-plugin>
         <plugin.maven-resources-plugin>2.7</plugin.maven-resources-plugin>
 
 
@@ -47,11 +47,11 @@
         <plugin.maven-shared-jar>1.1</plugin.maven-shared-jar>
         <plugin.bcel-findbugs>6.0</plugin.bcel-findbugs>
         <dep.maven>3.3.1</dep.maven>
-        <dep.rhino>1.7.6</dep.rhino>
+        <dep.rhino>1.7.7</dep.rhino>
         <dep.commons-io>2.4</dep.commons-io>
-        <dep.guava>18.0</dep.guava>
+        <dep.guava>19.0</dep.guava>
         <dep.junit>4.12</dep.junit>
-        <dep.selenium>2.45.0</dep.selenium>
+        <dep.selenium>2.48.2</dep.selenium>
         <dep.mockito>2.0.2-beta</dep.mockito>
 
     </properties>
