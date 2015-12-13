@@ -4,7 +4,7 @@
 
     <groupId>org.slieb</groupId>
     <artifactId>js-runtimes</artifactId>
-    <version>1.2</version>
+    <version>1.3-SNAPSHOT</version>
     <name>JavaScript Runtimes</name>
     <description>A set of utility classes to execute code on a few JavaScript runtimes.</description>
     <url>http://stefanliebenberg.github.io/js-runtimes/</url>
